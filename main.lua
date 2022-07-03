@@ -11,6 +11,7 @@ local ui = Instance.new("ScreenGui")
 ui.Name = "ui"
 ui.Parent = game.CoreGui
 ui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+local id = game:GetService("HttpService"):GenerateGUID(false)
 
 coroutine.wrap(
     function()
@@ -83,6 +84,10 @@ local function MakeDraggable(topbarobject, object)
             end
         end
     )
+end
+
+function lib:GetExecId():string
+    return id
 end
 
 function lib:Window(text, preset, closebind)
